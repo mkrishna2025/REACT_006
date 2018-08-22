@@ -1,0 +1,150 @@
+React
+	JS Library
+	developed for creating User Interfaces
+	data driven Library
+	SPA
+	
+React DOM => Web
+React Native => Mobile
+React VR => VR
+
+Application => 
+	Backend: Express JS, C#, Spring
+	FrontEnd: Angular JS, React JS
+	
+FrontEnd => 
+	Logical - Can share between React DOM, React Native, React VR...
+	View - little different
+	
+Browser 
+	CSS: Styling
+ 	HTML: UI elements
+	JS: Logical
+	
+React code will generate css, html, js.
+
+How React is different
+	It has internal mechanism, it checks whether elements are loaded or not. Load elements that are not loaded.
+
+Use Cases
+	Uber App
+	Pagination
+	Grid to Form 
+
+
+DOM => Document Object Model
+
+var restaurants = [
+	{ id: 1, label: 'Krutunga' },
+	{ id: 2, label: 'Paradise' },
+	{ id: 3, label: 'Meridian' }
+]
+
+DOM
+<table>
+	<tr><td>Krutunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Meridian</td></tr>
+</table>
+
+React => Original DOM, Virtual DOM
+Original DOM
+<table>
+	<tr><td>Krutunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Meridian</td></tr>
+</table>
+Virtual DOM 
+<table>
+	<tr><td>Krutunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Meridian</td></tr>
+</table>
+
+Step 1 => Assume one new restaurant is added in backend
+restaurants = [
+	{ id: 1, label: 'Krutunga' },
+	{ id: 2, label: 'Paradise' },
+	{ id: 3, label: 'Meridian' },
+	{ id: 4, label: 'Bawarchi' }
+]
+As data is changed, VD is recreated
+<table>
+	<tr><td>Krutunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Meridian</td></tr>
+	<tr><td>Bawarchi</td></tr>
+</table>
+compares with Original DOM
+Virtual DOM							Original DOM
+<tr><td>Krutunga</td></tr>			<tr><td>Krutunga</td></tr>
+<tr><td>Paradise</td></tr>			<tr><td>Paradise</td></tr>
+<tr><td>Meridian</td></tr>			<tr><td>Meridian</td></tr>
+<tr><td>Bawarchi</td></tr> => Injected
+
+Step 2 => Meridian is deleted
+restaurants = [
+	{ id: 1, label: 'Krutunga' },
+	{ id: 2, label: 'Paradise' },
+	{ id: 4, label: 'Bawarchi' }
+]
+As data is changed, VD is recreated
+<table>
+	<tr><td>Krutunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Bawarchi</td></tr>
+</table>
+compares with Original DOM
+Virtual DOM							Original DOM
+<tr><td>Krutunga</td></tr>			<tr><td>Krutunga</td></tr>
+<tr><td>Paradise</td></tr>			<tr><td>Paradise</td></tr>
+						=> deleted  <tr><td>Meridian</td></tr>
+<tr><td>Bawarchi</td></tr>			<tr><td>Bawarchi</td></tr>
+
+Step 3 => Krutunga is changed to Kritunga
+restaurants = [
+	{ id: 1, label: 'Kritunga' },
+	{ id: 2, label: 'Paradise' },
+	{ id: 4, label: 'Bawarchi' }
+]
+As data is changed, VD is recreated
+<table>
+	<tr><td>Kritunga</td></tr>
+	<tr><td>Paradise</td></tr>
+	<tr><td>Bawarchi</td></tr>
+</table>
+compares with Original DOM
+Virtual DOM							Original DOM
+<tr><td>Kritunga</td></tr> =>Update <tr><td>Krutunga</td></tr>
+<tr><td>Paradise</td></tr>			<tr><td>Paradise</td></tr>
+<tr><td>Bawarchi</td></tr>			<tr><td>Bawarchi</td></tr>
+
+Mechanism
+When Data is changes, Virtual DOM is recreated and then starts comparison with Original DOM. In Comparison,
+If it finds new node in Virtual DOM => Injected to Original DOM
+If it finds missing node in Virtual DOM => Removed in Original DOM
+it it finds updated node in Virtual DOM => Updates in Original DOM
+
+	
+React
+	JS => Basics
+			Variables
+			Functions
+			Objects
+			Arrays
+	   => In depth
+			Class
+			CallBack
+			Prototypes
+	   => ES6 standards
+	   
+React Pattern
+	JS Basics to depth => 5 to 7 sessions
+	SPA - 1 session
+	ES6 Standards => 2 sessions
+	React Basics => 10 sessions
+	Node => 1 session
+	React with Node => 10 sessions
+	
+	Redux, Express, TypeScript
+	
