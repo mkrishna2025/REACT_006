@@ -1,0 +1,11 @@
+React Pattern
+	JS Basics to depth => 5 to 7 sessions
+	SPA - 1 session
+	ES6 Standards => 2 sessions
+	React Basics => 10 sessions
+	Node => 1 session
+	React with Node => 10 sessions with one mini Project
+	
+	Redux, Express, TypeScript
+	
+https://github.com/mkrishna2025/REACT_006

@@ -1,0 +1,297 @@
+// Day 1 - Start
+
+Chrome => Right Click and select inspect
+		  Select Console Tab
+		  Select undock into seperate window for full window
+
+Variable
+	Holds the values
+	
+// Syntax for creating Variable
+var variableName = defaultValue;
+
+var user = 'Karthik';
+var age = 30;
+var city;
+
+// Viewing the values inside variableName
+1. Displaying in Alert Box => alert(user) => Displays user value in popup.
+2. Print to Console => console.log(user) => prints value to console.
+
+alert(city) => displays undefined in popup. ie defaultValue is undefined
+
+var a = 10;
+var b = 20;
+
+var c = a + b;
+alert(c) => displays 30 in popup
+
+var d = '40';
+var e = c + d;
+alert(e) => displays 3040 in popup => concatenation occurs as one of the value type is string.
+
+var isMale = true;
+alert(isMale) => displays true in popup
+
+Types
+	String
+	Number
+	Bool
+	Undefined
+	Function
+	
+Functions
+	Block of code
+	Uses => reusability, code reduction
+	
+// Syntax-1 for Creating function
+function functionName(arguments) {
+	// block of code
+	
+	// return value if needed
+}
+
+function welcome(){
+	console.log('Welcome to Demo');
+}
+
+// Executing the function
+functionName(params);
+
+welcome(); => Executes the block
+
+function add(x, y){
+	var z = x + y;
+	return z;
+}
+
+var result = add(10, 20);
+alert(result);
+
+x and y are called arguments of function
+10 and 20 are called parameters to function
+
+// Syntax-2 for Creating function
+var functionName = function(arguments) {
+	// block of code
+	
+	// return value if needed
+}
+var sub = function(x, y){
+	var z =  x - y;
+	return z;
+}
+var result = sub(10, 2);
+alert(result) => displays 8 in popup
+
+Helper Functions => functions that are already exists/supports in browser
+typeof => returns type of the value
+parseInt => converts string to int
+			this removes decimals and round off is not applied
+parseFloat => convets string to float
+
+typeof("karthik") => string
+typeof(user) => string
+typeof(age) => number
+typeof(isMale) => boolean
+typeof(city) => undefined
+typeof(add) => function
+
+parseInt("100") => 100
+parseInt("100.9") => 100
+parseFloat("100.9") => 100.9
+
+Opertors 
+Assignment =
+Comparison ==
+Conditional ?
+Or || Handles undefined
+
+
+Conditional Opertor
+var variableName = condition ? value1 : value2;
+if condition is true
+	value1 is copied to variable
+else 
+	value2 is copied to variable
+
+var z = 10 > 5 ? 20 : 30;
+alert(z);
+
+Comparison
+1 == 1 returns true
+1 == 2 returns false
+1 == "1" returns true as == compares only value
+1 === "1" returns false as === compares both value and type
+1 === parseInt("1") returns true
+
+var a;
+var b = a || 40;
+alert(b) => displays 40 in popup
+
+var l, m, n;
+var z = l || m || n || 40;
+alert(z) => displays 40 in popup
+
+m = 20;
+z = l || m || n || 40;
+alert(z) => displays 20 in popup
+
+function mul(x, y) {
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x * y;
+	return z;
+}
+var result = mul(10, 20);
+
+mul(10, 20) returns 200
+mul(10, 20, 30) returns 200. 10 is copied to x, 20 is copied to y and 30 is ignored. ie additional params are ignored
+mul(10) returns NaN - Not a Number. 10 is copied to x. y is not passed, so it picks defaultValue of undefined.
+
+1 + undefined => NaN
+1 - undefined => NaN
+1 * undefined => NaN
+1 / undefined => NaN
+
+// Handling undefined in function
+function mul(x, y) {
+	x = x || 1;
+	y = y || 1;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x * y;
+	return z;
+}
+mul(10) returns 10
+
+// Day 1 - End
+
+// Day 2 - Start
+
+Object => Key value pair
+		Key can be 
+			string - accessing using . or []
+			number - accessing using []
+		Value can be 
+			string
+			number 
+			boolean 
+			object(nested)
+			function
+
+// syntax
+var variableName = {};
+
+// accessing the keys
+object.key
+object['key']
+
+// Sample for key of string
+var neha = {
+	name: 'Neha Singh',
+	age: 20
+}
+
+// Sample for key of number
+var test = { 
+	1: 'a', 
+	2: 'b'
+}
+		
+test['1'] will return a
+test.2 throws exception as key with type number cant access using . operator
+
+For key of string, we can use special character _
+var prakash = {
+	first_name: 'Prakash',
+	last_name: 'Kumar'
+}
+
+var neha = {
+	name: 'Neha Singh',
+	age: 20,
+	city: 'Hyderabad'
+}
+
+// accessing key values as shown below
+console.log('Neha Singh with age 20 is from Hyderabad ');
+console.log( neha.name + ' with age '+ neha.age+ ' is from ' + neha.city);
+console.log( neha['name'] + ' with age '+ neha.age+ ' is from ' + neha['city']);
+
+// adding key value pair to object
+neha.college = "KVR";
+neha['native'] = 'India';
+
+if key exists, value of that key is updated.
+if key doesn't exist, key value pair is added.
+
+// deleting keys
+delete neha.college
+delete neha['native']
+
+// value can be object(nested object)
+neha.address = {
+	line1: '1/2/3',
+	line2: 'Kukatpally'
+}
+
+to print kukatpally
+neha.address.line2
+neha.address['line2']
+neha['address']['line2']
+neha['address'].line2
+
+Use Cases:
+1. Object as an input parameter to function
+
+function welcome(name, age, city) {
+	name = name || '';
+	age = age || '';
+	city = city || '';
+	console.log('Welcome to Demo ' + name + ',' + age + ',' + city);
+}
+
+function welcome2(options) {
+	console.log('Welcome to Demo ' + options.name + ',' + options.age + ',' + options.city);
+}
+welcome2({ name: 'Rakesh', age: 20, city: 'Hyd' })
+
+function welcome3(options) {
+	options = options || {};
+	options.name = options.name || '';
+	options.age = options.age || '';
+	options.city = options.city || '';
+	console.log('Welcome to Demo ' + options.name + ',' + options.age + ',' + options.city);
+}
+
+2. Grouping of methods
+var calculator = {
+	add: function(x, y){
+		return x + y;
+	},
+	sub: function(x, y){
+		return x - y;
+	}
+}
+calculator.mul = function(x, y) {
+	return x * y;
+}
+
+JSON.stringify => Converts object to string
+JSON.parse => converts string to object
+
+function createPerson(fn, ln, age) {
+	return {
+		name: fn + ' ' + ln,
+		age: age
+	}
+}
+var karthik = createPerson('Karthik', 'Reddy', 30)
+var preethi = createPerson('Preethi', 'Singh', 20)
+
+// Arrays
+
+
+
+
