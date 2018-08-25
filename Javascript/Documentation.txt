@@ -290,7 +290,162 @@ function createPerson(fn, ln, age) {
 var karthik = createPerson('Karthik', 'Reddy', 30)
 var preethi = createPerson('Preethi', 'Singh', 20)
 
+// Day 2 - End
+
+// Day 3 - Start
+
 // Arrays
+	Collection
+	Its an Object where keys are numeric, starts with 0, increments by 1
+	Usually we call key as Index
+	
+var numbers = [ 1, 2, 3, 4, 5 ];
+
+var students = [ 'Prakash', 'Veena', 'Deepak' ]
+
+// Iterating Arrays
+// Approach 1 - For
+for(var index = 0; index < students.length; index++){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 2 - For In - Iterating by Index
+for(var index in students){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 3 - For Of - Iterating by item
+for(var student of students){
+	console.log(student);
+}
+
+var persons = [
+	{ name: 'Akash', age: 20, city: 'Hyderabad' },
+	{ name: 'Deepthi', age: 30, city: 'Hyderabad' },
+	{ name: 'Venkat', age: 25 },
+	{ name: 'Neha', age: 24, city: 'Delhi' },
+	{ name: 'Prakash', age: 20 }
+]
+
+
+// Printing Persons
+for(var person of persons){
+	console.log('Welcome to Demo, ' + person.name + ', ' + person.age + ', ' + person.city );
+}
+
+// Printing Persons where age is greater than 24
+for(var person of persons){
+	if(person.age > 24) {
+		console.log('Welcome to Demo, ' + person.name + ', ' + person.age + ', ' + person.city );
+	}
+}
+
+// Printing Persons where age is greater than 24 and city is Hyderabad
+for(var person of persons){
+	if(person.age > 24 && person.city == 'Hyderabad') {
+		console.log('Welcome to Demo, ' + person.name + ', ' + person.age + ', ' + person.city );
+	}
+}
+
+// Adding item to Array
+students.push('Kavya') => added at the end
+
+// removing item from Array
+students.pop() => removed last element or recently added element
+
+// Creating array of different types
+var array = [ 'Prakash', 20, true, undefined, { line1: 'Kupatpally' }, function() { console.log('Welcome to Demo'); } ]
+
+array[0] Prakash
+array[1] 20
+array[2] true
+array[3] undefined
+array[4] { line1: 'Kupatpally' }
+array[4].line1 Kupatpally
+array[5] f
+array[5]()
+
+React.createButton('Submit')
+var React = {
+	createButton: function(text) {
+		
+	}
+}
+
+React.creatElement('button', { text: 'Submit', id: 'Login'});
+var React = {
+	creatElement: function(type, options){
+		
+	}
+}
+
+NIT.UI.Framework.createButton('Login').submit();
+var NIT = {
+	UI: {
+		Framework: {
+			createButton: function(text) {
+				return {
+					submit: function(){
+					
+					},
+					validate: function(){
+					}
+				}
+			}
+		}
+	}
+}
+
+var prakash = {
+	name: 'Prakash Kumar',
+	age: 20,
+	addresses: [
+		{ line1: '1/2/3', line2: 'Kukatpally' },
+		{ line1: '2/3/4', 'line2': 'Ameerpet', city: 'HYD' }
+	],
+	getCreditScore: function(){
+	}
+}
+
+
+JSON.parse
+JSON.stringify
+
+var JSON = {
+	parse: function(){
+	},
+	stringify: function(){
+	}
+}
+
+// Self Executing Functions 
+	Function that executes itself
+	Adv: Memory allocated for function is cleared automatically once the function is executed
+(function functionName() {})()
+
+(function welcome() {
+	console.log('Welcome to Demo');
+})()
+
+
+(function add(x, y) {
+	return x + y;
+})(10, 20)
+
+sum(10, 20) => 30
+
+sum(10)(20) => 30
+
+
+
+
+
+
+
 
 
 
