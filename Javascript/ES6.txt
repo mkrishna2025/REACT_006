@@ -1,0 +1,140 @@
+this
+	refers to Context/Scope
+	in browser, this refers to browser window
+	
+// In Object, this refers to object.
+var prakash = {
+	name: 'Prakash',
+	getName: function() {
+		return this.name;
+	}
+}
+
+var Calculator = function() {
+	return {
+		add: function(x, y) {
+			return x + y;
+		},
+		sub: function(x, y) {
+			return x - y;
+		}
+	}
+}
+var c1 = new Calculator();
+c1.add(10, 20)
+
+clas Syntax
+function className {
+	// private variables/methods
+	// global variables/methods
+	
+	return {
+		// public variables/methods
+	}
+}
+
+ES6
+	Its new standards for javascript. Browser cant understand ES6. So we need to use babel plugin to convert Es6 to old standards.
+
+// https://babeljs.io/repl
+
+// Old
+function Welcome(){
+	return {};
+}
+
+// ES6
+class Welcome {
+}
+
+// Old
+var Calculator = function() {
+	return {
+		add: function(x, y) {
+			return x + y;
+		},
+		sub: function(x, y) {
+			return x - y;
+		}
+	}
+}
+
+// ES6
+class Calculator {
+	add(x, y) {
+		return x + y;
+	}
+	sub(x, y) {
+		return x - y;
+	}
+}
+
+// Old
+function Test(options) {
+	var x = options.x;
+	return {
+		y: options.y
+	}
+}
+
+// ES6
+class Test {
+	constructor(options) {
+		this.y = options.y;
+	}
+}
+var t1 = new Test({ x: 10, y: 20 })
+t1.x => undefined
+t1.y => 20
+
+class Calculator {
+	constructor(options) {
+		this.x = options.x || 0;
+		this.y = options.y || 0;
+	}
+	add() {
+		return this.x + this.y;
+	}
+	sub() {
+		return this.x - this.y;
+	}
+}
+
+// Inheritance
+class Father {
+	getGender(){
+		return "M";
+	}
+	getName(){
+		return "Venkat";
+	}
+}
+
+class Son extends Father {
+	getName(){
+		return "Venu";
+	}
+	getCity(){
+		return "Hyderbad"
+	}
+}
+
+var obj1 = new Son();
+
+console.log('Welcome to Demo, ' + obj1.getName() + ',' + obj1.getGender() + ',' + obj1.getCity()) will print 
+Welcome to Demo, Venu,M,Hyderbad
+
+class Account {
+	getAccountNumber(){
+	}
+}
+
+class CurrentAccount extends Account {
+	
+}
+
+class SavingsAccount extends Account {
+}
+
+const pi = 3.14;
+pi = 4; throws exception as we cant update constants.
