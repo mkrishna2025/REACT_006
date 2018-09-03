@@ -129,8 +129,30 @@ TestComponent({ title: 'Welcome to React Demo'})
 
 Important Points
 	Use curly braces for variables with in jsx elements.
+	
+React Components
+	Stateless => functions
+	StateFull => Es6 class => Create ES6 class, extend with React.Component and implement the render function
+	
 
+class Component {
+	constructor(props) {
+		this.props = props;
+	}
+	test() {
+	}
+}
+class Login extends Component {
+	getLogin() {
+		return this.props.userName;
+	}
+}
 
+class Welcome extends Component {
+	getWelcomeText(){
+		return this.props.text;
+	}
+}
 
 
 
