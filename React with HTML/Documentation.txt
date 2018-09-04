@@ -155,9 +155,113 @@ class Welcome extends Component {
 }
 
 
+Person name age city
+
+Class Person {
+	constructor(props){
+		this.name = props.name || '';
+		this.age = props.age || '';
+		this.city = props.city || '';
+	}
+	welcome() {
+		return this.name + this.age + this.city;
+	}
+}
+
+class Component {
+	constructor(props){
+		this.props = props;
+	}
+}
+
+class Person extends Component {
+	welcome() {
+		return this.props.name + this.props.age + this.props.city;
+	}
+}
+
+class Student extends Component {
+	welcome() {
+		return this.props.fullName;
+	}
+}
+
+class Test {
+	test1() {
+		var x = 0;
+		this.y = 0;
+	}
+	test2() {
+		// x cant be accessed
+		this.y can be accessed
+	}
+}
+
+x is block level variable
+y is public variable
+
+
+Variables
+block level => var x = 1; accessed with in the block/function
+public => this.x accessed in all functions
+Props => this.props.x(stateful), props.x(stateless) => attributes that component receives 
+		try to not to update props
+consts => const x = 1;
+State => this.state.x => changes in these variables will update the UI.
+
+// How to create state level variables ie initialization
+
+class Test extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			x: 1,
+			y: 2,
+			z: 3
+		}
+	}
+}
+
+// updating values => use helper method setState
+this.setState({ x: 4 })
+
+here x values changes from 1 to 4, as it value is changed screen updates automatically
+
+this.setState({ x: 1 })
+x value is not updated, so there are no updates in screen
 
 
 
+class RestaurantScreen extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			restaurants: []
+		}
+	}
+	
+	// will make a backend call
+	this.setState({ restaurants: response });
+}
+
+Events
+onLoad="function()"
+
+<input type='button' value='Load' onClick="" />
+
+class Test extends React.Component {
+	buttonClick(){
+	
+	}
+	render() {
+		return (
+			<input type='button' value='Load' onClick={this.buttonClick}/>
+		);
+	}
+}
+
+<input type='button' value='Load' onClick={this.buttonClick}/> here this will be null inside buttonClick method. so If scope needs to pass then we need to use .bind(this)
+<input type='button' value='Load' onClick={this.buttonClick.bind(this)}/>
 
 
 
