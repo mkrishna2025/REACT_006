@@ -263,6 +263,24 @@ class Test extends React.Component {
 <input type='button' value='Load' onClick={this.buttonClick}/> here this will be null inside buttonClick method. so If scope needs to pass then we need to use .bind(this)
 <input type='button' value='Load' onClick={this.buttonClick.bind(this)}/>
 
+document.getElementById('txt1').value
+document.getElementById('chk1').checked
+
+buttonClick(event) {
+
+}
+
+event => React Synthetic event
+to get control => event.target
+to get value => event.target.value
+
+
+Converting HTML to React
+1. Copy html body to render function.
+2. Add one div at the top if there are multiple nodes.
+3. Add Closing Tags if it is missing
+4. Copy styles to head section
+
 
 
 

@@ -1,0 +1,72 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=button]:hover {
+    background-color: #45a049;
+}
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div id="app">
+	</div>
+	<script type="text/babel">
+	class LoginScreen extends React.Component{
+		constructor(props){
+			super(props);
+		}
+		loginClick() {	
+			alert('Login Clicked');
+		}
+		render() {
+			return (
+				<div>
+					<h3>Using CSS to style an HTML Form</h3>
+					<div>
+						<label>First Name</label>
+						<input type="text" id="fname" name="firstname" placeholder="Your name.." />
+						<label>Last Name</label>
+						<input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+						<label>Country</label>
+						<select id="country" name="country">
+							<option value="australia">Australia</option>
+							<option value="canada">Canada</option>
+							<option value="usa">USA</option>
+						</select>
+						<input type="button" value="Login" onClick={this.loginClick.bind(this)}/>
+					</div>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<LoginScreen welcomeText='Welcome to Demo'/>, document.getElementById('app'))
+	</script>
+</body>
+</html>
