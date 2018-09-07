@@ -281,6 +281,27 @@ Converting HTML to React
 3. Add Closing Tags if it is missing
 4. Copy styles to head section
 
+// Arrow Functions
+var add = function(x, y) {
+	return x + y;
+}
+
+var add = (x, y) =>  {
+	return x + y;
+}
+
+var add = (x, y) => x + y;
+
+var sub = (x, y) => x - y;
+sub(10, 2)
+
+MasterPages
+Composition
+
+ES6 in Depth
+	...
+	
+Prototype, CallBack
 
 
 
