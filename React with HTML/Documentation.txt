@@ -303,6 +303,37 @@ ES6 in Depth
 	
 Prototype, CallBack
 
+<table>
+	<thead>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+class table extends React.Component {
+	render() {
+		return (
+			<div>
+				{this.props.children}
+			</div>
+		)
+	}
+}
+
+class tbody extends React.Component {
+	render() {
+		return (
+			<div class='tbody'>
+				{this.props.children}
+			</div>
+		);
+	}
+}
+
+
+this.props.children => innernodes that component receives
+use case => 
+1. MasterPages
 
 
 

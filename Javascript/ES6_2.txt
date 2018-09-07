@@ -1,0 +1,59 @@
+var person = {
+	name: 'Karthik',
+	age: 20,
+	city: 'Hyderbad'
+}
+
+// Scenario - 1 - copy all attributes
+// old
+var person2 = {};
+for(var key in person){
+	person2[key] = person[key];
+}
+
+// ES6 
+var person3 = { ...person };
+
+// Scenario -2 - copy all attributes plus add/update attributes
+// old
+var person2 = {};
+for(var key in person){
+	person2[key] = person[key];
+}
+person2.city = 'Delhi';
+person2.address = 'Metro Station'
+
+// ES6
+var person3 = { ...person, city: 'Delhi', address: 'Metro Station'};
+
+// Scenario - 3 - copy from multiple objects
+var obj1 = { a: 1, b: 2, c:3 }
+var obj2 = { c: 4, d: 5 }
+var obj3 = { e: 6, f: 7 }
+
+var obj4 = {};
+for(var key in obj1){
+	obj4[key] = obj1[key];
+}
+for(var key in obj2){
+	obj4[key] = obj2[key];
+}
+for(var key in obj3){
+	obj4[key] = obj3[key];
+}
+
+// ES6
+var obj4 = { ...obj1, ...obj2, ...obj3 }
+
+
+// Retrieving
+var person = { firstName: 'Neha', lastName: 'Singh', age: '', city: ''};
+
+var fName = person.firstName;
+var lName = perosn.lastName;
+
+// ES6
+var { firstName, lastName } = person;
+var { firstName: fName, lastName: lName } = person;
+
+
