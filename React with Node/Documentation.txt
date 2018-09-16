@@ -1,0 +1,43 @@
+Boiler Plate => Common Code
+Boiler Plate Command => Command to generate Project
+
+Installing Boiler Plate
+	npm install -g create-react-app 
+Generating Project	
+	create-react-app projectname
+
+Project
+	package.json
+	node_modules
+	
+Node Modules
+	npm install moduleName --save
+	
+Installing the modules
+1. npm install moduleName --save
+2. add module name to package.json and run npm install
+
+npm install a --save
+	
+	a
+		b  	c
+	     e f
+		 
+	e f b c a
+	
+ES5 standard
+module.exports = Calculator
+var Calc1 = require('./Calculator');
+
+Es6 standard
+export Calculator
+import Calc1 from './Calculator';
+	
+Manual/Old Approach
+cd profiler
+npm init
+npm install react react-dom react-scripts --save
+create html file
+create js file
+
+	
