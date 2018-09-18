@@ -40,4 +40,40 @@ npm install react react-dom react-scripts --save
 create html file
 create js file
 
+
+Routing =>
+	npm install react-router-dom --save
+
+Basic Routing => loading all components that are configured for particular route
+default Routing => loads for all routes
+SubRoutes => SubRoute of one parent route. If parent route component needs to skip then use exact keyword for parent
+Switch => Loads only one component
+
+1. In order to support routing for project, we need to add BrowserRouter as parent.
+
+
+Project Structure
+public
+src
+	containers/views
+	components - reusable components
+	images
+	data - fixed static information - states, countries
+	constants - settings
+
+Creating a project
+	Create Component and map to Router
+	Add UI view to render method of component
+	Close all tags
+	Add Images
+	
+	
+Router
+	BrowserRouter
+	HashRouter
+	
+	
+
+
+
 	
