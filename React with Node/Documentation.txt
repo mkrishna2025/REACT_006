@@ -72,7 +72,108 @@ Router
 	BrowserRouter
 	HashRouter
 	
+CallBack Function => it is a function where function as passed as input parameter
+
+const add = (x,y) => x + y
+
+function add(x, y) {
+	return x + y;
+}
+
+function add(x, y, callback) {
+	var z = x + y;
+	callback(z);
+}
+add(2, 4, function(){
+	console.log('Demo');
+});
+
+add(2, 4, function(value){
+	console.log('Result is ' + value);
+});
+
+http.createServer(function(req, res) {}).listen(3000);
+
+Javascript usaually runs in Synchronous mode. Sometimes it finds Asynchrous code and Javascript will not wait till it finishes. In order to handle Asynchrous process, Javascript uses concepts like Promises.
+
+Promise => It is a way to handle asynchronous operations. It has 2 outputs. Sucess and Failure
+
+collectMoney({
+	amount: 10000,
+	user: 'Prakash'
+}).then(callback)
+.catch(callback)
+
+collectMoney({
+	amount: 10000,
+	user: 'Prakash'
+}).then(function(response) { alert(response) })
+.catch(function(error){ alert(error)})
+
+collectMoneyAndDeposit({
+	amount: 10000,
+	user: 'Prakash'
+}).then(callback1).then(callback3).catch(callback2)
+
+orderBiriyani({
+	type: 'ChickenBiriyani'
+}).then(response => {
+	alert(response); // it will print something like Biriyani is ready
+	return collectOrder();
+}).then(response => {
+	alert(response); => will print something like Order is Collected
+	return startDelivery();
+}).then(response => {
+	alert(response); => will print something like item is delivered 
+}).catch(error => {
+	alert(error); => will print something like unable to serve order
+})
+
+URL Requests
+	Get => 
+		Retriveing Data 
+		its like a url requesting
+	Post => 
+		Inserting, Updating, Deleting.. sometimes we use it for Retriveing also
+		Submiting form
+		
+LifeCycle
+	Constructor => Initialization or loading default values
+	ComponentWillMount => Triggers before component is rendered. Registering/Subscribing Bluetooth, Channels, adding events.
+	Render => Rendering the View
+	ComponentDidMount => Triggers everytime when page is loaded
+	ComponentWillUnMount => Triggers when component is unloaded. UnSubscriging, Degistering....
 	
+
+
+
+class Restaurant extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			restaurants: [],
+			errorMessage: ''
+		}
+	}
+	
+	componentDidMount(){
+		getDataFromServer().then( response => {
+			this.setState({ restaurants: response.data});
+		}).catch( error => {
+			this.setState({ errorMessage: error.message});
+		})
+	}
+	
+	render() {
+		return (
+			<div>{this.state.restaurants}</div>
+		);
+	}
+}
+
+
+
+
 
 
 
