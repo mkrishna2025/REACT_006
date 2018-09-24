@@ -7,6 +7,10 @@ import MarkersScreen from './containers/location/markers.js';
 import AutoCompleteScreen from './containers/location/autocomplete.js';
 import MaterialScreen from './containers/materialdemo';
 import MaterialAppBarScreen from './containers/materialdemo/appbardemo.js';
+import CarouselScreen from './containers/carousel';
+import ModalScreen from './containers/modaldemo';
+import TabScreen from './containers/tabs';
+
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -38,6 +42,9 @@ class App extends Component {componnet
         <Route path="/search" component={AutoCompleteScreen} />
         <Route path="/material" component={MaterialScreen} />
         <Route path="/materialbar" component={MaterialAppBarScreen} />
+        <Route path="/carousel" component={CarouselScreen} />
+        <Route path="/modal" component={ModalScreen} />
+        <Route path="/tab" component={TabScreen} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );
