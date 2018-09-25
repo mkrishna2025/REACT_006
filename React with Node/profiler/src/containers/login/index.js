@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './login.css';
+import $ from 'jquery';
+import swal from 'sweetalert';
 
 export default  class Login extends Component {
     onLogin(){
@@ -15,14 +17,21 @@ export default  class Login extends Component {
         })
         .then(response => {
           if(response.data){
+            swal("Alert","Login Success");
             this.props.history.push('home');
           } else {
-            alert('Invalid Credentials');
+            swal("Alert", 'Invalid Credentials', "error");
           }
         })
         .catch(error => {
           alert(error);
         });
+    }
+    componentDidMount(){
+        var button = $('#Login')[0];
+        if(button){
+            button.style.background = 'yellow';
+        }
     }
     render() { 
         return (
@@ -36,7 +45,7 @@ export default  class Login extends Component {
                 Password: <input type='text' onChange={event => this.password = event.target.value} />
                 <br/>
                 <br/>
-                <input type='button' value='Login with API' onClick={this.onLogin.bind(this)} />
+                <input type='button' id="Login" value='Login with API' onClick={this.onLogin.bind(this)} />
                 <input type='button' value="Login" onClick={(event) => {
                     //this.props.history.push('home');
                     localStorage.setItem('address', JSON.stringify({
