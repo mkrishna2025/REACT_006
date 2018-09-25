@@ -171,10 +171,115 @@ class Restaurant extends React.Component {
 	}
 }
 
+history.push('home')
+
+history.push('/home', { some: 'state' })
+
+history.push({
+  pathname: '/home',
+  search: '?the=query',
+  state: { some: 'state' }
+})
+
+this.props.history.push('home')
+
+var courses = [ 'React', 'React Native']
+
+var liElements = [];
+for(var course of courses){
+	liElements.push(<li>{course}</li>)
+}
+
+courses.map(course => <li>{course}</li>)
+
+courses.map = function(callback){
+	var newArray = [];
+	for(var item of this){
+		newArray.push(callback(item));
+	}
+	return newArray;
+}
+
+Node: Points to remember
+1. It installs modules inside node_modules folder.
+2. It installs submodules required for that module.
+3. In each module, there should be package.json.
+4. We will never checkin node_modules folder. So when we download a project from source control, we must run command npm install to install all dependencies.
+5. Module can be added using npm install moduleName or add module manually to dependencies object of package.json and run npm install command.
+6. save is attribute to be used to insert module into dependencies section of package.json
+	npm install react --save
+7. save-dev is attribute to be used to insert module into devDependencies section of package.json. These modules I need in development stage only.
+	npm install jest --save-dev
+	
+npm install react-router-dom --save
+yarn add react-router-dom
+
+Adding Images
+1. add images to public folder and use as html standard
+	adv: 
+		same syntax as html
+		ability to configure in backend and get images dynamically by using json
+	dis: all files will be copied to bundle
+2. add images inside images folder of src folder and import images in the beginining of the file
+	adv:
+		copies only used images(ie imported images)
+	dis:
+		fixed set of data and cant load dynamically
+		syntax changes
+		we must import in the beginining of the file
+		
+Choosing Modules from internet
+	1. check the last commit and pick the recent ones
+	2. Try to pick same react version or -1
+	3. if older version is needed, select tag and pick the version
+	
+npm install react-gmaps --save => 1.9 version
+npm install react-gmaps@1.6.0 => 1.6.0 version
+
+Navigation Params
+	Params
+	Query/Search string
+	
+1.Params
+// passing params => 
+Adv:
+	for security purposes, we can use this as params are not shown in query string
+Dis:
+	Refresh will not work
+	
+history.push({
+	pathname: 'home',
+	params: { username: 'Karthik', age: 20 }
+});
+
+var params = this.props.location.params;
+console.log(params.username + ', with age ' + params.age);
+
+2. Query/Search string
+// passing as search params => ie in query string
+Adv:
+	supports refresh feature
+
+https://github.com/mkrishna2025/Routing
+history.push({
+	pathname: 'home',
+	search: 'username=Karthik&age=20',
+});
+const queryParams = new URLSearchParams(this.props.location.search);
+console.log(queryParams.get('username') + ', with age ' + queryParams.get('age'));
+
+<a href='google.com?username=karthik'>Google</a>
 
 
 
+<Link to={{
+          pathname: '/google.com',
+          search: 'username=karthik',
+          params: { secretAccessKey: '123456' }
+        }}> Google </Link>
+		
+https://reactjs.org/docs/reconciliation.html
 
-
+https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 
 	

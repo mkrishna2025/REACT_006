@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import LoginScreen from './containers/login';
+import HomeScreen from './containers/home';
 import LocationScreen from './containers/location';
 import MarkersScreen from './containers/location/markers.js';
 import AutoCompleteScreen from './containers/location/autocomplete.js';
@@ -14,13 +16,6 @@ import TabScreen from './containers/tabs';
 
 import { Route, Switch } from 'react-router-dom';
 
-class Login extends Component {
-  render() { return (<div> Welcome to Login</div> ) }
-}
-
-class Home extends Component {
-  render() { return (<div> Welcome to Home</div> ) }
-}
 
 class ContactUS extends Component {
   render() { return (<div> Welcome to Contact Us</div> ) }
@@ -34,8 +29,8 @@ class App extends Component {componnet
   render() {
     return (
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/home" component={Home} />
+        <Route path="/" exact component={LoginScreen} />
+        <Route path="/home" component={HomeScreen} />
         <Route path="/contactus" component={ContactUS} />
         <Route path="/location" component={LocationScreen} />
         <Route path="/markers" component={MarkersScreen} />
