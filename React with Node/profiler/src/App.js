@@ -12,7 +12,8 @@ import MaterialAppBarScreen from './containers/materialdemo/appbardemo.js';
 import CarouselScreen from './containers/carousel';
 import ModalScreen from './containers/modaldemo';
 import TabScreen from './containers/tabs';
-
+import AttendeeScreen from './containers/attendees';
+import Attendee2Screen from './containers/attendees/withTable.js';
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -40,6 +41,8 @@ class App extends Component {componnet
         <Route path="/carousel" component={CarouselScreen} />
         <Route path="/modal" component={ModalScreen} />
         <Route path="/tab" component={TabScreen} />
+        <Route path="/attendee" component={AttendeeScreen} />
+        <Route path="/attendeeTable" component={Attendee2Screen} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );

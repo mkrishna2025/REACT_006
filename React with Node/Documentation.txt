@@ -282,4 +282,6 @@ https://reactjs.org/docs/reconciliation.html
 
 https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 
+https://www.getpostman.com/
+https://desktop.github.com/
 	
