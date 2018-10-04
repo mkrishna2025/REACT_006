@@ -1,0 +1,65 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.7/react-redux.min.js"></script>
+
+
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		const Test = ({ items, addItem, tempValue, addTemp }) => return <div>
+					<input type='text' onChange={event => addTemp(event.target.value) } />
+					<input type='button' value='Add' onClick={event => addItem(tempValue) } />
+					<ul>
+						{items.map(item => <li>{item}</li>)}
+					</ul>
+				</div>
+		
+		
+		const add = item => {  return { type: 'Add_ToDo', payload: item } };
+		const addTemp => item => { return { type: 'Add_Temp', payload: item } };
+							
+		
+		const mapStateToProps = (state) => {
+			const { todos, temp } = state;
+			return { 
+				items: todos,
+				tempValue: temp
+			};
+		}
+		
+		const mapDispatchToProps = (dispatch) => {
+			return {
+				addItem: item => dispatch(add(item)),
+				addTemp: item => dispatch(addTemp(item))
+			}
+		}
+		
+		const TestRedux = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(Test);
+		
+		const reducer = function(state = { todos: [], temp: '' }, action){
+			switch(action.type) {
+				case 'Add_ToDo': {
+					return {...state, todos: [...state.todos, action.payload ]}
+				}
+				case 'Add_Temp': {
+					return {...state, temp: action.payload }
+				}
+			}	
+			return state;
+		}
+		
+		const reduxStore = Redux.createStore(reducer);
+		
+		ReactDOM.render(<ReactRedux.Provider store={reduxStore}>
+							<TestRedux/>
+						</ReactRedux.Provider>, document.getElementById('root'));
+	</script>
+</body>
+</html>

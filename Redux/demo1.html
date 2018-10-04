@@ -1,0 +1,32 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		// Stateful
+		class Test extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					todos: ['a','b']
+				}
+			}
+			render() {
+				return <div>
+					<input type='text' onChange={event => this.todo = event.target.value } />
+					<input type='button' value='Add' onClick={event => this.setState({ todos: [...this.state.todos, this.todo] })} />
+					<ul>
+						{this.state.todos.map(item => <li>{item}</li>)}
+					</ul>
+				</div>
+			}
+		}
+		ReactDOM.render(<Test/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

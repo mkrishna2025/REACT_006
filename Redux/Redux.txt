@@ -1,0 +1,96 @@
+
+Redux
+	Global State
+	
+Login to Home => userinfo
+
+ContactUs => get userinfo from Home
+
+A - x
+B
+C - x
+
+
+User - userinfo, address, creditcard
+
+Redux
+	Actions
+	Reducer
+	Dispatch
+	State
+	
+Bank
+	Deposit Money = 10k = teller will receive request and places amount in global section
+	teller => deposit, disperse, help
+	
+	action Object
+	{
+		type: 'Deposit',
+		amount: 10;
+	}
+	
+	reducer - receiving request
+	function(state = { totalAmount: 0 }, action) {
+		switch action.type
+			case 'Deposit': {
+				return { ...state, totalAmount: state.totalAmount + action.amount }
+			}
+			case 'Collect': {
+				return { ...state, totalAmount: state.totalAmount - action.amount }
+			}
+	}
+	
+Redux
+	var store = createStore(reducer);
+	store.dispatch(actionObject)
+	store.dispatch({ type: 'Deposit', amount: 10 });
+	
+	const deposit = amount => { return { type: 'Deposit', amount: 10 } }
+	store.dispatch(deposit(10));
+
+ReactRedux
+	var store = createStore(reducer);
+	<Provider store={store} >
+		<App />
+	</Provider>
+	// for dispatch method in props
+	static propTypes = {
+		dispatch: PropTypes.func.isRequired
+	};
+	// triggering action
+	this.props.dispatch(deposit(10))
+	
+	
+	
+	class Home extends React.Component{
+		static propTypes = {
+			dispatch: PropTypes.func.isRequired
+		};
+	}
+
+	// converting react component to redux component
+	export default connect(mapStateToProps, mapDispatchToProps, null, null)(Home);
+	export default connect(state => {} , dispatch => {}, null, null)(Home);
+	
+	state - userinfo, address, creditcard
+	const mapStateToProps = (state) => {
+		const { address, creditcard } = state;
+		return { 
+			line1: address.line1, 
+			line2: address.line2, 
+			ccNumber: creditcard.number
+		} 
+	}
+	
+	render() {
+		const { line1, line2, line3 } = this.props;
+	}
+	
+	function connect(a,b,c,d){
+		var items1 = a(); // will return something like object. Mapping state to props 
+		return function(component){
+			var reduxComponent = React.clone(component, items1);
+			
+			return reduxComponent;
+		}
+	}
