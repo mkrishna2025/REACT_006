@@ -4,10 +4,10 @@ Redux
 	State Management
 	
 Redux
-	Actions
+	Actions - Action Object
 	Reducer
-	Dispatch
-	State
+	Dispatch - When action is dispatched, the reducer(ie function) configured in store will be triggered/executed.
+	Store - Global Store - createStore(reducer)
 	
 Bank
 	Deposit Money = 10k = teller will receive request and places amount in global section
