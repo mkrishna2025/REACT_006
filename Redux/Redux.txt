@@ -75,12 +75,3 @@ ReactRedux
 	render() {
 		const { line1, line2, line3 } = this.props;
 	}
-	
-	function connect(a,b,c,d){
-		var items1 = a(); // will return something like object. Mapping state to props 
-		return function(component){
-			var reduxComponent = React.clone(component, items1);
-			
-			return reduxComponent;
-		}
-	}
