@@ -1,18 +1,8 @@
 
 Redux
 	Global State
+	State Management
 	
-Login to Home => userinfo
-
-ContactUs => get userinfo from Home
-
-A - x
-B
-C - x
-
-
-User - userinfo, address, creditcard
-
 Redux
 	Actions
 	Reducer
